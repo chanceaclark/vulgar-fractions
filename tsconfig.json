@@ -1,0 +1,27 @@
+{
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "include": [
+        "src"
+    ],
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "isolatedModules": true,
+        "lib": ["dom", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "dist",
+        "pretty": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "esnext",
+        "declaration": true,
+    }
+}

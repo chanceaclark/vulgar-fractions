@@ -1,0 +1,30 @@
+{
+  "name": "vulgar-fractions",
+  "description": "Turn integers into vulgar unicode fractions and vice-versa.",
+  "keywords": [
+    "vulgars",
+    "fractions"
+  ],
+  "author": {
+    "name": "Chancellor Clark",
+    "email": "chancellorclark@gmail.com"
+  },
+  "version": "1.0.0",
+  "main": "dist/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ./src"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
+  }
+}

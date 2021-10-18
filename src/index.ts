@@ -23,6 +23,10 @@ const DECIMAL_MAP: Record<number, string> = Object.fromEntries(
   Object.entries(VULGAR_MAP).map(([vulgar, decimal]) => [decimal, vulgar]),
 );
 
+const FRACTION_REGEXP = new RegExp(/^\d+\/\d+/);
+
+const DECIMAL_REGEXP = new RegExp(/^\d*\.+\d*$/);
+
 const hasMapping = (value: string | number) => {
   if (typeof value === 'string') {
     return Object.keys(VULGAR_MAP).includes(value);
@@ -35,6 +39,32 @@ const hasMapping = (value: string | number) => {
   return false;
 };
 
-export const toVulgar = (decimal: number) => (hasMapping(decimal) ? DECIMAL_MAP[decimal] : undefined);
+export const toVulgar = (decimal: number) => (hasMapping(decimal) ? DECIMAL_MAP[decimal] : decimal.toString());
 
-export const toDecimal = (value: string) => (hasMapping(value) ? VULGAR_MAP[value] : undefined);
+export const toDecimal = (value: string) => (hasMapping(value) ? VULGAR_MAP[value].toString() : value);
+
+export const parseVulgars = (str: string) => {
+  const splitStr = str.split(' ');
+
+  return splitStr
+    .map((substr) => {
+      if (FRACTION_REGEXP.test(substr)) {
+        const [a, b] = substr.split('/');
+
+        const decimal = parseInt(a, 10) / parseInt(b, 10);
+
+        return hasMapping(decimal) ? toVulgar(decimal) : substr;
+      }
+
+      if (DECIMAL_REGEXP.test(substr)) {
+        const [whole, fraction] = substr.split('.');
+        const decimal = parseFloat(`.${fraction}`);
+        const vulgar = toVulgar(decimal);
+
+        return parseInt(whole, 10) ? `${whole} ${vulgar}` : vulgar;
+      }
+
+      return substr;
+    })
+    .join(' ');
+};

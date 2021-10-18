@@ -24,7 +24,7 @@
     "build:dt": "tsc -p tsconfig.json --emitDeclarationOnly",
     "lint": "eslint ./src",
     "test": "BABEL_ENV=test jest",
-    "prepublishOnly": "rm -rf dist && yarn lint && yarn build"
+    "prepublishOnly": "rm -rf dist && yarn lint && yarn test && yarn build"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",

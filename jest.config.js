@@ -1,5 +1,7 @@
 module.exports = {
-  clearMocks: true,
+  transform: {
+    '^.+\\.(t|j)sx?$': ['@swc/jest'],
+  },
   moduleFileExtensions: ['js', 'ts'],
   collectCoverageFrom: ['src/**'],
   coverageThreshold: {
@@ -10,6 +12,7 @@ module.exports = {
       statements: 100,
     },
   },
+  clearMocks: true,
   resetMocks: true,
   resetModules: true,
 };

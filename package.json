@@ -18,21 +18,19 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "yarn run build:cjs && yarn run build:es && yarn run build:dt",
-    "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel --extensions \".ts,.tsx\" ./src --out-dir ./dist/cjs",
-    "build:es": "NODE_ENV=production BABEL_ENV=es babel --extensions \".ts,.tsx\" ./src --out-dir ./dist/es",
-    "build:dt": "tsc -p tsconfig.json --emitDeclarationOnly",
+    "build": "yarn build:cjs && yarn build:es && yarn build:dt",
+    "build:cjs": "yarn swc src -d dist/cjs -C module.type=commonjs",
+    "build:es": "yarn swc src -d dist/es -C module.type=es6",
+    "build:dt": "yarn tsc --emitDeclarationOnly",
     "lint": "eslint ./src",
-    "test": "BABEL_ENV=test jest",
-    "prepublishOnly": "rm -rf dist && yarn lint && yarn test && yarn build"
+    "test": "jest",
+    "prepublishOnly": "rm -rf dist && yarn lint && yarn build"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-runtime": "^7.13.15",
-    "@babel/preset-env": "^7.14.0",
-    "@babel/preset-typescript": "^7.15.0",
-    "@types/jest": "^27.0.2",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.194",
+    "@swc/jest": "^0.2.21",
+    "@types/jest": "^27.5.1",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "eslint": "^7.16.0",
@@ -40,7 +38,7 @@
     "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.0",
-    "jest": "^27.3.0",
+    "jest": "^28.1.0",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
   }

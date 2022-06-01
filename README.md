@@ -1,8 +1,12 @@
 # vulgar-fractions
 
-[![npm version](https://badge.fury.io/js/vulgar-fractions.svg)](https://badge.fury.io/js/vulgar-fractions)
-
 Simple library to convert decimals into unicode vulgar fractions.
+
+<img src="https://badgen.net/npm/v/vulgar-fractions" />
+<img src="https://badgen.net/npm/dw/vulgar-fractions" />
+<img src="https://badgen.net/npm/types/vulgar-fractions" />
+<img src="https://badgen.net/bundlephobia/minzip/vulgar-fractions" />
+<img src="https://badgen.net/github/checks/chanceaclark/vulgar-fractions" />
 
 ## Usage
 

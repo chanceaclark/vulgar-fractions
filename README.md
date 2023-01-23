@@ -3,11 +3,11 @@
 Simple library to convert decimals into unicode vulgar fractions.
 
 <div>
-    <img src="https://badgen.net/npm/v/vulgar-fractions" />
-    <img src="https://badgen.net/npm/dw/vulgar-fractions" />
-    <img src="https://badgen.net/npm/types/vulgar-fractions" />
-    <img src="https://badgen.net/bundlephobia/minzip/vulgar-fractions" />
-    <img src="https://badgen.net/github/checks/chanceaclark/vulgar-fractions" />
+    <a href="https://www.npmjs.com/package/vulgar-fractions" target="_blank"><img src="https://badgen.net/npm/v/vulgar-fractions?cache=300" alt="NPM Version." /></a>
+    <a href="https://www.npmjs.com/package/vulgar-fractions" target="_blank"><img src="https://badgen.net/npm/dw/vulgar-fractions" alt="NPM Downloads per week" /></a>
+    <img src="https://badgen.net/npm/types/vulgar-fractions" alt="TypeScript types included." />
+    <a href="https://bundlephobia.com/package/vulgar-fractions" target="_blank"><img src="https://badgen.net/bundlephobia/minzip/vulgar-fractions" alt="Bundlephobia minified + gzipped size." /></a>
+    <a href="https://github.com/chanceaclark/vulgar-fractions/actions" target="_blank"><img src="https://badgen.net/github/checks/chanceaclark/vulgar-fractions" /></a>
 </div>
 
 ## Usage

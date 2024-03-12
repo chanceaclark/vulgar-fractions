@@ -26,13 +26,13 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && yarn build:dt",
-    "build:cjs": "yarn swc src -d dist/cjs -C module.type=commonjs",
-    "build:es": "yarn swc src -d dist/es -C module.type=es6",
-    "build:dt": "yarn tsc --emitDeclarationOnly",
-    "lint": "eslint ./src",
+    "build": "pnpm build:cjs && pnpm build:es && pnpm build:dt",
+    "build:cjs": "pnpm swc src -d dist/cjs -C module.type=commonjs",
+    "build:es": "pnpm swc src -d dist/es -C module.type=es6",
+    "build:dt": "pnpm tsc --emitDeclarationOnly",
+    "lint": "eslint .",
     "test": "jest",
-    "prepublishOnly": "rm -rf dist && yarn lint && yarn build"
+    "prepublishOnly": "rm -rf dist && pnpm lint && pnpm build"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.57",

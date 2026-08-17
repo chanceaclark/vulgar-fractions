@@ -30,7 +30,6 @@ const VULGAR_MAP = new Map([
       0.111,
       0.1111,
       0.11111,
-      0.11111,
       0.111111,
       0.1111111,
       0.11111111,
@@ -52,7 +51,6 @@ const VULGAR_MAP = new Map([
       0.333,
       0.3333,
       0.33333,
-      0.33333,
       0.333333,
       0.3333333,
       0.33333333,
@@ -72,7 +70,6 @@ const VULGAR_MAP = new Map([
     [
       0.666,
       0.6666,
-      0.66666,
       0.66666,
       0.666666,
       0.6666666,
@@ -98,7 +95,6 @@ const VULGAR_MAP = new Map([
       0.166,
       0.1666,
       0.16666,
-      0.16666,
       0.166666,
       0.1666666,
       0.16666666,
@@ -118,7 +114,6 @@ const VULGAR_MAP = new Map([
     [
       0.833,
       0.8333,
-      0.83333,
       0.83333,
       0.833333,
       0.8333333,
@@ -140,17 +135,12 @@ const VULGAR_MAP = new Map([
   ['⅞', [0.875]],
 ]);
 
-const FRACTION_REGEXP = new RegExp(/^\d+\/\d+/);
+const FRACTION_REGEXP = /^\d+\/\d+/;
 
-const DECIMAL_REGEXP = new RegExp(/^\d*\.+\d*$/);
+const DECIMAL_REGEXP = /^\d*\.+\d*$/;
 
-const hasMapping = (value: number) => {
-  if (typeof value === 'number') {
-    return Array.from(VULGAR_MAP.values()).some((decimals) => decimals.includes(value));
-  }
-
-  return false;
-};
+const hasMapping = (value: number) =>
+  Array.from(VULGAR_MAP.values()).some((decimals) => decimals.includes(value));
 
 export const toVulgar = (decimal: number): string => {
   const mapping = Array.from(VULGAR_MAP.entries()).find(([, mapping]) => mapping.includes(decimal));
@@ -168,8 +158,7 @@ export const toDecimal = (value: string): string => {
   const mappings = VULGAR_MAP.get(value);
 
   if (mappings) {
-    // Casting since we know it's always going to be a number.
-    const lastValue = mappings.at(mappings.length - 1) as number;
+    const lastValue = mappings.at(-1) as number;
 
     return String(lastValue);
   }

@@ -9,14 +9,12 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 18
-          - 20
+          - 22
+          - 24
 
     steps:
     - uses: actions/checkout@v4
-    - uses: pnpm/action-setup@v3
-      with:
-        version: latest
+    - uses: pnpm/action-setup@v4
     - name: Node.js ${{ matrix.node_version }}
       uses: actions/setup-node@v4
       with:
@@ -24,5 +22,5 @@ jobs:
         cache: 'pnpm'
     - run: pnpm install
     - run: pnpm lint
-    - run: pnpm test -- --coverage
+    - run: pnpm exec jest --coverage
     - run: pnpm build

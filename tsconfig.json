@@ -9,11 +9,11 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
-        "importHelpers": true,
         "isolatedModules": true,
         "lib": ["dom", "esnext"],
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
+        "rootDir": "src",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "outDir": "dist",

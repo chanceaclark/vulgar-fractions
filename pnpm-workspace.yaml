@@ -1,0 +1,8 @@
+allowBuilds:
+  "@swc/core": true
+  unrs-resolver: true
+
+overrides:
+  electron-to-chromium: "1.5.407"
+  baseline-browser-mapping: "2.11.14"
+  get-tsconfig: "4.14.2"

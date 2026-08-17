@@ -34,10 +34,13 @@
     "test": "jest",
     "prepublishOnly": "rm -rf dist && pnpm lint && pnpm build"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@swc/core", "unrs-resolver"]
+  },
   "devDependencies": {
-    "@swc/cli": "^0.3.10",
-    "@swc/core": "^1.4.6",
-    "@swc/jest": "^0.2.36",
+    "@swc/cli": "^0.8.1",
+    "@swc/core": "^1.16.0",
+    "@swc/jest": "^0.2.39",
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",

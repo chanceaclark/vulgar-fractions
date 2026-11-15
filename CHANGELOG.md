@@ -1,5 +1,31 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+- Loading the package in Node.js threw for both `import` and `require` in
+  1.5.1 (#20). `"type": "module"` in `package.json` made Node parse the
+  CommonJS build as ESM.
+
+### Changed
+- Added an `"exports"` map: `import` resolves to the ESM build and `require`
+  to the CommonJS build, each with matching type declarations
+  (`dist/index.d.ts` / `dist/index.d.cts`).
+- The CommonJS build is now `dist/cjs/index.cjs` (was `dist/cjs/index.js`).
+- Named imports (`import { toVulgar } from 'vulgar-fractions'`) now work in
+  plain Node.js, not just in bundlers.
+- **Possibly breaking:** deep imports into `dist/` (e.g.
+  `vulgar-fractions/dist/es/index.js`) are no longer allowed by Node. In Node
+  ESM, the default import (`import vf from 'vulgar-fractions'`), which only
+  worked because Node wrapped the CommonJS build, is gone; use named imports
+  or `import * as vf` instead.
+
+### Internal
+- Added `pnpm test:package` smoke tests that load the built package through
+  its `exports` map; they run in CI and in `prepublishOnly`.
+- Fixed the CI matrix key typo (`node_version` vs `node-version`) that kept
+  CI from actually testing on each Node version.
+
 ## [1.5.1] - 2026-08-17
 
 ### Fixed

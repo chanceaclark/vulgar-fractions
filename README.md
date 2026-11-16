@@ -14,6 +14,8 @@ Simple library to convert decimals into unicode vulgar fractions.
 
 ```ts
 import { toDecimal, toVulgar } from 'vulgar-fractions';
+// or, with CommonJS:
+// const { toDecimal, toVulgar } = require('vulgar-fractions');
 
 // Convert decimal to unicode vulgar:
 toVulgar(.25) // '¼'

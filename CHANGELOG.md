@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.5.2] - 2026-11-16
 
 ### Fixed
 - Loading the package in Node.js threw for both `import` and `require` in
